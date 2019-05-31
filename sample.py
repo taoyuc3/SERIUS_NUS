@@ -1,1 +1,1 @@
-print("afternoon tea ready!")
+print("This is a sample bruh!")
