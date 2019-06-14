@@ -47,22 +47,22 @@ for i in range(25):
     plt.imshow(train_images[i], cmap=plt.cm.binary)
     plt.xlabel(class_names[train_labels[i]])
     # construct the model
-    # set the layers
+    # set the layersplt.imshow(test_images[0])
     # def create_model():
     model = keras.Sequential([
         # transfer the 2D 28x28 array to 1D
         keras.layers.Flatten(input_shape=(28, 28)),
         # the first dense layer has 128 neurons
         keras.layers.Dense(512, activation=tf.nn.relu),
-        # drop put 20%
+        # drop out 20%
         keras.layers.Dropout(0.3),
         # the second layer
         keras.layers.Dense(512, activation=tf.nn.relu),
-        # drop put 20%
+        # drop out 20%
         keras.layers.Dropout(0.3),
         #  the third layer
         keras.layers.Dense(512, activation=tf.nn.relu),
-        # drop put 20%
+        # drop out 20%
         keras.layers.Dropout(0.3),
         # the softmax layer has 10 neurons,
         # this layer will return an array consists of 10 probability scores, which sum up to 1
@@ -81,7 +81,6 @@ model.compile(optimizer=tf.train.AdamOptimizer(),
 # # create a basic model instance
 #     model = create_model()
 #     model.summary
-
 
 # train the model
 #  1. feed training data to the model
