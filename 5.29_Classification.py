@@ -86,7 +86,7 @@ model.compile(optimizer=tf.train.AdamOptimizer(),
 #  1. feed training data to the model
 #  2. model learns to associate images and labels
 #  3. after that we evaluate the predictions on the test set, verifying if images and labels would match
-model.fit(train_images, train_labels, epochs=150, batch_size=10, verbose=1)
+model.fit(train_images, train_labels, epochs=2, batch_size=10, verbose=1)
 # save model to a HDF5 file
 model.save("classification.h5")
 
