@@ -6,8 +6,6 @@ import os
 import tensorflow as tf
 from tensorflow import keras
 
-tf.__version__
-
 (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
 
 train_labels = train_labels[:1000]
