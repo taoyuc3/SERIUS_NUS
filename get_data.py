@@ -6,7 +6,7 @@ import numpy as np
 def get_data():
     data = []
     labels = []
-    img = []
+
     for i in glob.glob('./NEU-DET/IMAGES_Dataset/train/crazing/*.jpg', recursive=True):
         img = cv2.imread(i)
         data.append(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
@@ -37,7 +37,6 @@ def get_data():
         data.append(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
         labels.append(5)
 
-# cv2.imshow('Original image', img)
     data = np.stack(data)  # array of shape [num_images, height, width, channel]
     labels = np.stack(labels)
 

@@ -162,4 +162,3 @@ sn.heatmap(df_cm, linewidths=0.05, annot=True, annot_kws={"size": 10}, fmt="d")
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
-

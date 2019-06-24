@@ -91,10 +91,9 @@ plt.legend(['train', 'test'], loc='upper left')
 # plot confusion matrix
 plt.figure(1)
 array = confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=1))
-df_cm = pd.DataFrame(array, index=['Crazing', 'Inclusion', 'Patches', 'Pitted', 'Rolled', 'Scratches'],
-                     columns=['Crazing', 'Inclusion', 'Patches', 'Pitted', 'Rolled', 'Scratches'], )
+df_cm = pd.DataFrame(array, index=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'],
+                     columns=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'], )
 sn.set(font_scale=1)
-
 sn.heatmap(df_cm, linewidths=0.05, annot=True, annot_kws={"size": 14}, fmt="d")
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
