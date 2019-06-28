@@ -27,7 +27,8 @@ y_test = to_categorical(y_test, 6)
 # print('\nThe dimension of images for testing is:', x_test.shape,
 #       '\nThe dimension of labels for testing is:', y_test.shape)
 
-new_model = keras.models.load_model('serius100.h5')
+new_model = keras.models.load_model('best1.h5')
+
 new_model.summary()
 
 predictions = new_model.predict(x_test.reshape(-1, 200, 200, 1))
@@ -46,47 +47,47 @@ s1 = class_names[int(np.argmax(predictions[i]))]
 s2 = class_names[int(np.argmax(y_test[i]))]
 
 if s1 == s2:
-    print('\nCongratulations, the prediction is correct.')
+    print('\nThe prediction is correct.')
 else:
-    print('\nSorry, the prediction is not correct.')
+    print('\nThe prediction is not correct.')
 
 # plot confusion matrix
-plt.figure(4)
+plt.figure(2)
 plt.imshow(x_test[i, :, :], cmap='gray')
 plt.title('Prediction: ' + s1 + '\nActual: ' + s2)
 plt.axis('off')
 
-# summarize history for accuracy
-plt.figure(3)
-acc = np.load('serius_history_acc.npy')
-val_acc = np.load('serius_history_val_acc.npy')
-plt.plot(acc)
-plt.plot(val_acc)
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
-plt.grid()
-
-
-def to_percent(temp, position):
-    return '%1.0f' % (100 * temp) + '%'
-
-
-plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
-
-plt.legend(['train', 'test'], loc='upper left')
-
-# summarize history for loss
-plt.figure(2)
-loss = np.load('serius_history_loss.npy')
-val_loss = np.load('serius_history_val_loss.npy')
-plt.plot(loss)
-plt.plot(val_loss)
-plt.title('model loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.grid()
-plt.legend(['train', 'test'], loc='upper left')
+# # summarize history for accuracy
+# plt.figure(3)
+# acc = np.load('serius_history_acc.npy')
+# val_acc = np.load('serius_history_val_acc.npy')
+# plt.plot(acc)
+# plt.plot(val_acc)
+# plt.title('model accuracy')
+# plt.ylabel('accuracy')
+# plt.xlabel('epoch')
+# plt.grid()
+#
+#
+# def to_percent(temp):
+#     return '%1.0f' % (100 * temp) + '%'
+#
+#
+# plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
+#
+# plt.legend(['train', 'test'], loc='upper left')
+#
+# # summarize history for loss
+# plt.figure(2)
+# loss = np.load('serius_history_loss.npy')
+# val_loss = np.load('serius_history_val_loss.npy')
+# plt.plot(loss)
+# plt.plot(val_loss)
+# plt.title('model loss')
+# plt.ylabel('loss')
+# plt.xlabel('epoch')
+# plt.grid()
+# plt.legend(['train', 'test'], loc='upper left')
 
 # plot confusion matrix
 plt.figure(1)

@@ -3,6 +3,7 @@ from sklearn.metrics import confusion_matrix
 from matplotlib.ticker import FuncFormatter
 from keras.utils import to_categorical
 from keras.models import Sequential
+from keras.callbacks import ModelCheckpoint
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import seaborn as sn
@@ -47,10 +48,10 @@ model.add(MaxPooling2D(pool_size=(3, 3)))
 model.add(Flatten())
 
 model.add(Dense(512, activation='relu'))
-model.add(Dropout(0.4))
+model.add(Dropout(0.2))
 
 model.add(Dense(512, activation='relu'))
-model.add(Dropout(0.4))
+model.add(Dropout(0.2))
 
 model.add(Dense(num_classes, activation='softmax'))
 
@@ -61,12 +62,17 @@ model.compile(loss='categorical_crossentropy',
 
 x_train, y_train = get_data.get_data()
 x_train = x_train / 255.0
-print(x_train.shape, y_train.shape)
 y_train = to_categorical(y_train, 6)
-
+# print(x_train.shape, y_train.shape)
 model.summary()
 
 start = time.time()
+# checkpoint = ModelCheckpoint(filepath='best1.h5',
+#                              monitor='val_acc',
+#                              mode='max',
+#                              verbose=2,
+#                              save_weights_only=False,
+#                              save_best_only=True)
 # train the model
 history = model.fit(x_train.reshape(-1, 200, 200, 1),
                     y_train,
@@ -74,13 +80,13 @@ history = model.fit(x_train.reshape(-1, 200, 200, 1),
                     epochs=num_epochs,
                     verbose=2,
                     validation_split=0.1)
-
+# callbacks=[checkpoint])
 end = time.time()
 
 np.save("serius_history_acc", history.history['acc'])
 np.save("serius_history_val_acc", history.history['val_acc'])
 
-model.save("serius.h5")
+# model.save("sample.h5")
 
 x_test, y_test = get_test.get_test()
 x_test = x_test / 255.0
@@ -96,8 +102,9 @@ np.save("serius_history_val_loss", history.history['val_loss'])
 
 # printing functions
 print("\nThe runtime is:", end - start, "seconds")
-print('Test accuracy:', test_acc*100, "%")
+print('Test accuracy:', test_acc * 100, "%")
 print('──────────────────────────────────────────────────────────────')
+
 j = input("Please enter a number (0-359): ")
 i = int(j)
 
@@ -120,7 +127,7 @@ else:
 
 # retrieve defect image and show
 plt.figure(4)
-plt.imshow(x_test[i,:,:], cmap='gray')
+plt.imshow(x_test[i, :, :], cmap='gray')
 plt.title('Predicted Defect:' + s1 + '\nActual Defect:' + s2)
 plt.axis('off')
 
@@ -135,11 +142,10 @@ plt.grid()
 
 
 def to_percent(temp, position):
-    return '%1.0f' % (100*temp) + '%'
+    return '%1.0f' % (100 * temp) + '%'
 
 
 plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
-
 plt.legend(['train', 'test'], loc='upper left')
 
 # summarize history for loss
