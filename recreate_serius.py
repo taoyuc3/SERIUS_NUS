@@ -27,19 +27,21 @@ y_test = to_categorical(y_test, 6)
 # print('\nThe dimension of images for testing is:', x_test.shape,
 #       '\nThe dimension of labels for testing is:', y_test.shape)
 
-new_model = keras.models.load_model('best1.h5')
+new_model = keras.models.load_model('best2.h5')
 
-new_model.summary()
+# new_model.summary()
 
 predictions = new_model.predict(x_test.reshape(-1, 200, 200, 1))
 
-print('\nThe confusion matrix for testing is:')
-print(confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=1)))
+# print('\nThe confusion matrix for testing is:')
+# print(confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=1)))
 # while 1:
 # print(confusion_matrix(y_test, predictions))
+
 j = input("\nPlease enter a number (0-359): ")
 i = int(j)
 # printing stuffs
+
 print("\nThe prediction is:", np.argmax(predictions[i]), "―", class_names[int(np.argmax(predictions[i]))])
 print("The actual label is:", y_test[i], "―", class_names[int(np.argmax(y_test[i]))])
 
@@ -95,7 +97,7 @@ array = confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=
 df_cm = pd.DataFrame(array, index=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'],
                      columns=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'], )
 sn.set(font_scale=1)
-sn.heatmap(df_cm, linewidths=0.05, annot=True, annot_kws={"size": 14}, fmt="d")
+sn.heatmap(df_cm, linewidths=0.5, annot=True, annot_kws={"size": 13}, fmt="d")
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
