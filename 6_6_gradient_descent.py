@@ -20,20 +20,20 @@ alpha = 0.01
 
 # now we are going to define loss function and its gradient by using matrix vector
 def error_function(theta, X, y):
-    '''Error function J definition.'''
+    # Error function J definition
     diff = np.dot(X, theta) - y
     return (1. / 2 * m) * np.dot(np.transpose(diff), diff)
 
 
 def gradient_function(theta, X, y):
-    '''Gradient of the function J definition.'''
+    # Gradient of the function J definition
     diff = np.dot(X, theta) - y
     return (1. / m) * np.dot(np.transpose(X), diff)
 
 
 # essential part: gradient descent iteration
 def gradient_descent(X, y, alpha):
-    '''Perform gradient descent.'''
+    # Perform gradient descent
     theta = np.array([1, 1]).reshape(2, 1)
     gradient = gradient_function(theta, X, y)
     # when the gradient is less than 1e-5, meaning it is roughly

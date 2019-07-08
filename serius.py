@@ -26,7 +26,7 @@ num_classes = 6
 
 # parameters for training
 batch_size = 32
-num_epochs = 100
+num_epochs = 10
 
 class_names = ['Crazing', 'Inclusion', 'Patches', 'Pitted_Surface', 'Rolled_In_Scale', 'Scratches']
 

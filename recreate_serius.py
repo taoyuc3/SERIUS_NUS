@@ -1,5 +1,4 @@
 from sklearn.metrics import confusion_matrix
-from matplotlib.ticker import FuncFormatter
 from keras.utils import to_categorical
 from tensorflow import keras
 import matplotlib.pyplot as plt
@@ -27,7 +26,7 @@ y_test = to_categorical(y_test, 6)
 # print('\nThe dimension of images for testing is:', x_test.shape,
 #       '\nThe dimension of labels for testing is:', y_test.shape)
 
-new_model = keras.models.load_model('best2.h5')
+new_model = keras.models.load_model('best3.h5')
 
 # new_model.summary()
 
@@ -42,22 +41,35 @@ j = input("\nPlease enter a number (0-359): ")
 i = int(j)
 # printing stuffs
 
-print("\nThe prediction is:", np.argmax(predictions[i]), "―", class_names[int(np.argmax(predictions[i]))])
-print("The actual label is:", y_test[i], "―", class_names[int(np.argmax(y_test[i]))])
+# print("\nThe prediction is:", np.argmax(predictions[i]), "―", class_names[int(np.argmax(predictions[i]))])
+# print("The actual label is:", y_test[i], "―", class_names[int(np.argmax(y_test[i]))])
+print("\nPrediction:", class_names[int(np.argmax(predictions[i]))])
+print("Actual label:", class_names[int(np.argmax(y_test[i]))])
 
 s1 = class_names[int(np.argmax(predictions[i]))]
 s2 = class_names[int(np.argmax(y_test[i]))]
 
 if s1 == s2:
-    print('\nThe prediction is correct.')
+    print('\nThis is correct prediction.')
 else:
-    print('\nThe prediction is not correct.')
+    print('\nThis is incorrect prediction.')
 
 # plot confusion matrix
 plt.figure(2)
 plt.imshow(x_test[i, :, :], cmap='gray')
 plt.title('Prediction: ' + s1 + '\nActual: ' + s2)
 plt.axis('off')
+
+# plot confusion matrix
+plt.figure(1)
+array = confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=1))
+df_cm = pd.DataFrame(array, index=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'],
+                     columns=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'], )
+sn.set(font_scale=1)
+sn.heatmap(df_cm, linewidths=0.5, annot=True, annot_kws={"size": 13}, fmt="d")
+plt.ylabel('Actual')
+plt.xlabel('Predicted')
+plt.show()
 
 # # summarize history for accuracy
 # plt.figure(3)
@@ -91,13 +103,3 @@ plt.axis('off')
 # plt.grid()
 # plt.legend(['train', 'test'], loc='upper left')
 
-# plot confusion matrix
-plt.figure(1)
-array = confusion_matrix(np.argmax(y_test, axis=1), np.argmax(predictions, axis=1))
-df_cm = pd.DataFrame(array, index=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'],
-                     columns=['Cr', 'In', 'Pa', 'PS', 'RS', 'Sc'], )
-sn.set(font_scale=1)
-sn.heatmap(df_cm, linewidths=0.5, annot=True, annot_kws={"size": 13}, fmt="d")
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
-plt.show()

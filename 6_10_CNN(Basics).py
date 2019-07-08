@@ -79,6 +79,7 @@ def doPool(inputs):
     # we can finish off our graph by making sure it returns data
     return model_fn_lib.ModelFnOps(mode=mode, predictions=predictions, loss=loss, train_op=train_op)
 
+
 def main(unused_argv):
     # Load training and eval data
     mnist = learn.datasets.load_dataset("mnist")
