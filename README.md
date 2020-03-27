@@ -1,5 +1,5 @@
 ### Summer2019 Undergraduate Research Internship
-### Electrical and Computer Engineering, Faculty of Engineering
+### Department of Electrical and Computer Engineering, Faculty of Engineering
 ### National University of Singapore
 https://www.eng.nus.edu.sg/ece/
 
