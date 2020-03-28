@@ -38,8 +38,6 @@ def convNet(inputs, labels, mode):
     # neat by typing all in a line
     dense = tf.layers.dense(inputs=flatPool, units=1024, activation=tf.nn.relu)
 
-
-#
 def doConv(inputs):
     convOut = tf.layers.conv2d(inputs=inputs, filters=numK, kernel_size=[sizeConvK, sizeConvK],
                                padding="SAME", activation=tf.nn.relu)

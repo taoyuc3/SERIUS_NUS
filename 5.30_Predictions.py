@@ -25,8 +25,3 @@ model.compile(optimizer='adam',
 # now we are going to train and evaluate the model
 model.fit(x_train, y_train, epochs=5)
 model.evaluate(x_test, y_test)
-
-
-
-
-

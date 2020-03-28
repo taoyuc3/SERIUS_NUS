@@ -16,7 +16,6 @@ fashion_mnist = keras.datasets.fashion_mnist
 #      loss='sparse_categorical_crossentropy',
 #      metrics=['accuracy'])
 
-
 # Recreate the exact same model, including weights and optimizer.
 new_model = keras.models.load_model('classification.h5')
 new_model.summary()
@@ -32,7 +31,6 @@ predictions = new_model.predict(test_images)
 print(predictions[100])
 print("The prediction is:", np.argmax(predictions[100]), "-", class_names[np.argmax(predictions[100])])
 print("The actual label is:", test_labels[100], "-", class_names[test_labels[100]])
-
 
 # # now can graph this to look at the full set of 10 channels
 # def plot_image(i, predictions_array, true_label, img):
@@ -53,8 +51,7 @@ print("The actual label is:", test_labels[100], "-", class_names[test_labels[100
 #                                          100 * np.max(predictions_array),
 #                                          class_names[true_label]),
 #                color=color)
-#
-#
+
 # def plot_value_array(i, predictions_array, true_label):
 #     predictions_array, true_label = predictions_array[i], true_label[i]
 #     plt.grid(False)
@@ -74,10 +71,9 @@ print("The actual label is:", test_labels[100], "-", class_names[test_labels[100
 #     plt.subplot(1, 2, 2)
 #     plot_value_array(i, predictions, test_labels)
 #     plt.show()
-#
-#
-# # Plot the first X test images, their predicted label, and the true label
-# # Color correct predictions in blue, incorrect predictions in red
+
+# Plot the first X test images, their predicted label, and the true label
+# Color correct predictions in blue, incorrect predictions in red
 # num_rows = 5
 # num_cols = 3
 # num_images = num_rows * num_cols
