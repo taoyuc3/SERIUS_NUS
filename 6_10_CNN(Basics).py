@@ -45,7 +45,6 @@ def doConv(inputs):
                                padding="SAME", activation=tf.nn.relu)
     return convOut
 
-
 # strides=2 means we will half the size of the image at each pooling layer
 def doPool(inputs):
     poolOut = tf.layers.max_pooling2d(inputs=inputs, pool_size=[sizePoolK, sizePoolK], strides=2)
@@ -112,15 +111,3 @@ print(eval_results)
 
 if __name__ == "__main__":
     tf.app.run()
-
-
-
-
-
-
-
-
-
-
-
-

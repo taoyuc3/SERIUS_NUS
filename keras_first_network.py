@@ -35,4 +35,3 @@ model.fit(X, Y, epochs=1000, batch_size=10)
 # don't know how well the algorithm might perform on new data
 scores = model.evaluate(X, Y)
 print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-

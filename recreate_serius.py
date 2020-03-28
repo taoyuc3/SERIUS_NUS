@@ -71,7 +71,7 @@ plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
 
-# # summarize history for accuracy
+# summarize history for accuracy
 # plt.figure(3)
 # acc = np.load('serius_history_acc.npy')
 # val_acc = np.load('serius_history_val_acc.npy')
@@ -102,4 +102,3 @@ plt.show()
 # plt.xlabel('epoch')
 # plt.grid()
 # plt.legend(['train', 'test'], loc='upper left')
-

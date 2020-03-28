@@ -2,7 +2,6 @@ import glob
 import cv2
 import numpy as np
 
-
 def get_test():
     data = []
     labels = []
@@ -41,4 +40,3 @@ def get_test():
     labels = np.stack(labels)
 
     return data, labels
-

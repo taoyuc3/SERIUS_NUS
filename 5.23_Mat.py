@@ -1,3 +1,4 @@
+# https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html#Exploring-Seaborn-Plots
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -71,4 +72,3 @@ plt.show()
 #     g = sns.jointplot("split_sec", "final_sec", data, kind='hex')
 #     g.ax_joint.plot(np.linspace(4000, 16000),
 #                     np.linspace(8000, 32000), ':k')
-# https://jakevdp.github.io/PythonDataScienceHandbook/04.14-visualization-with-seaborn.html#Exploring-Seaborn-Plots

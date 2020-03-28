@@ -28,4 +28,3 @@ for col in 'xy':
         sns.jointplot("x", "y", data, kind='kde');
 
 plt.show()
-

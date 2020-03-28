@@ -75,11 +75,3 @@ model.fit(train_images, train_labels,
           epochs = 50, callbacks = [cp_callback],
           validation_data = (test_images,test_labels),
           verbose=0)
-
-
-
-
-
-
-
-

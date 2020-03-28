@@ -1,9 +1,9 @@
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from sklearn.metrics import confusion_matrix
 from matplotlib.ticker import FuncFormatter
+from keras.callbacks import ModelCheckpoint
 from keras.utils import to_categorical
 from keras.models import Sequential
-from keras.callbacks import ModelCheckpoint
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import seaborn as sn
@@ -73,6 +73,7 @@ start = time.time()
 #                              verbose=2,
 #                              save_weights_only=False,
 #                              save_best_only=True)
+
 # train the model
 history = model.fit(x_train.reshape(-1, 200, 200, 1),
                     y_train,
@@ -80,6 +81,7 @@ history = model.fit(x_train.reshape(-1, 200, 200, 1),
                     epochs=num_epochs,
                     verbose=2,
                     validation_split=0.1)
+
 # callbacks=[checkpoint])
 end = time.time()
 
@@ -87,7 +89,6 @@ np.save("serius_history_acc", history.history['acc'])
 np.save("serius_history_val_acc", history.history['val_acc'])
 
 # model.save("sample.h5")
-
 x_test, y_test = get_test.get_test()
 x_test = x_test / 255.0
 y_test = to_categorical(y_test, 6)
@@ -140,10 +141,8 @@ plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.grid()
 
-
 def to_percent(temp, position):
     return '%1.0f' % (100 * temp) + '%'
-
 
 plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
 plt.legend(['train', 'test'], loc='upper left')

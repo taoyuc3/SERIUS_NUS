@@ -101,5 +101,3 @@ print(img.shape)
 
 # plot_value_array(0, predictions_single, test_labels)
 # _ = plt.xticks(range(10), class_names, rotation=45)
-
-

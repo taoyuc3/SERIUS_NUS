@@ -17,5 +17,3 @@ model.compile(optimizer='adam',
 model.fit(x_train, y_train, epochs=5)
 model.save('my_model.h5')
 model.evaluate(x_test, y_test)
-
-
