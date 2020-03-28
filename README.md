@@ -1,4 +1,4 @@
-### Summer'19 Undergraduate Research Internship
+### Summer Undergraduate Research Internship
 https://www.eng.nus.edu.sg/undergraduate/degree-programmes/study-abroad/incoming/serius/
 https://www.eng.nus.edu.sg/ece/
 
