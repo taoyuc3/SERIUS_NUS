@@ -67,6 +67,7 @@ y_train = to_categorical(y_train, 6)
 model.summary()
 
 start = time.time()
+
 # checkpoint = ModelCheckpoint(filepath='best1.h5',
 #                              monitor='val_acc',
 #                              mode='max',

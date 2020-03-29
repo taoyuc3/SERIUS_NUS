@@ -17,7 +17,6 @@ y = np.array([
 # The Learning Rate alpha.
 alpha = 0.01
 
-
 # now we are going to define loss function and its gradient by using matrix vector
 def error_function(theta, X, y):
     # Error function J definition
@@ -30,7 +29,6 @@ def gradient_function(theta, X, y):
     diff = np.dot(X, theta) - y
     return (1. / m) * np.dot(np.transpose(X), diff)
 
-
 # essential part: gradient descent iteration
 def gradient_descent(X, y, alpha):
     # Perform gradient descent
@@ -41,7 +39,6 @@ def gradient_descent(X, y, alpha):
         theta = theta - alpha * gradient
         gradient = gradient_function(theta, X, y)
     return theta
-
 
 optimal = gradient_descent(X, y, alpha)
 print('optimal:', optimal)

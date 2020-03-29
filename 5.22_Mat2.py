@@ -21,7 +21,6 @@ for col in 'xy':
     sns.distplot(data['y'])
     plt.show()
 # joint distribution and the marginal distributions
-
     sns.kdeplot(data)
 
     with sns.axes_style('white'):

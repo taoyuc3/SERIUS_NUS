@@ -42,4 +42,3 @@ predictions = model.predict(X)
 # round predictions
 rounded = [round(x[0]) for x in predictions]
 print(rounded)
-

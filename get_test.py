@@ -38,5 +38,4 @@ def get_test():
 
     data = np.stack(data)  # array of shape [num_images, height, width, channel]
     labels = np.stack(labels)
-
     return data, labels

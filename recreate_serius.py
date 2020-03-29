@@ -29,7 +29,6 @@ y_test = to_categorical(y_test, 6)
 new_model = keras.models.load_model('best3.h5')
 
 # new_model.summary()
-
 predictions = new_model.predict(x_test.reshape(-1, 200, 200, 1))
 
 # print('\nThe confusion matrix for testing is:')
@@ -81,17 +80,14 @@ plt.show()
 # plt.ylabel('accuracy')
 # plt.xlabel('epoch')
 # plt.grid()
-#
-#
+
 # def to_percent(temp):
 #     return '%1.0f' % (100 * temp) + '%'
-#
-#
+
 # plt.gca().yaxis.set_major_formatter(FuncFormatter(to_percent))
-#
 # plt.legend(['train', 'test'], loc='upper left')
-#
-# # summarize history for loss
+
+# summarize history for loss
 # plt.figure(2)
 # loss = np.load('serius_history_loss.npy')
 # val_loss = np.load('serius_history_val_loss.npy')

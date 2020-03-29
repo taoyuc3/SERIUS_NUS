@@ -16,7 +16,6 @@ inputSize = 28
 # number of channels to the input image gray scale = 1, RGB=3
 numChannels = 1
 
-
 def convNet(inputs, labels, mode):
     # reshape the input from a vector to a 2D image
     input_layer = tf.reshape(inputs, [-1, inputSize, numChannels])
@@ -75,7 +74,6 @@ def doPool(inputs):
                                                                                               name="softmax_tensor")}
     # we can finish off our graph by making sure it returns data
     return model_fn_lib.ModelFnOps(mode=mode, predictions=predictions, loss=loss, train_op=train_op)
-
 
 def main(unused_argv):
     # Load training and eval data
